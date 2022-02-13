@@ -1,0 +1,3 @@
+I used 2147483645 and 2147483647 to fail midpoint_original test. It failed because 2147483645 is 0x7FFF FFFD and 2147483647 is 0x7FFF FFFF so the midpoint of 2147483645 and 2147483647 is expected to be 0x7FFF FFFE. However, midpoint_original failed when it computes x+y because its result is 0x7FFF FFFD + 0x7FFF FFFF = 0xFFFFFFFE.
+
+I used -1 and 2147483647 to fail midpoint_A test. It failed because -1 is 0xFFFF FFFF and 2147483647 is 0x7FFF FFFF so the midpoint of -1 and 2147483647 is expected to be 0x3FFF FFFF. However, midpoint_A failed when it computes y-x because its result is 0xFFFF FFFF - 0x0x7FFF FFFF = 0xBFFFFFFF.

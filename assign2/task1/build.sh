@@ -1,0 +1,1 @@
+./intro < intro.in > intro.out
