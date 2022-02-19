@@ -1,0 +1,1 @@
+First, the signed number is used to ensure that negative numbers can be calculated correctly. Secondly, the input is compared before calculation to ensure that the output does not overflow.

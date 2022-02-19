@@ -1,0 +1,1 @@
+I used -10 and 4 to fail midpoint_B test. It failed because unsigned integer can not represents negative numbers. midpoint_B failed when it computes (unsigned int)x + (unsigned int)y because its result is 0x0000 FFF6 + 0x0000 0004 = 0x7FFF FFFD.
