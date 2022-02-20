@@ -5,13 +5,14 @@
 // 2) No globals allowed.
 char *convert_2(int dec)
 {
-	int c, d, t;
-	char *p;
+	int c, d, t, m, n, j;
+	char *p, *q;
 
 	t = 0;
-	p = (char *)malloc(40);
+	p = (char *)malloc(33);
+	q = (char *)malloc(40);
 
-	for (c = 39; c >= 0; c--)
+	for (c = 31; c >= 0; c--)
 	{
 		d = dec >> c;
 
@@ -19,13 +20,26 @@ char *convert_2(int dec)
 			*(p + t) = 1 + '0';
 		else
 			*(p + t) = 0 + '0';
-		if (c % 5 == 0)
-			*(p + t) = ' ';
 		t++;
 	}
 	*(p + t) = '\0';
-
-	return p;
+	j = 0;
+	n = 4;
+	for (m = 0; m < 41; m++)
+	{
+		if (m == n)
+		{
+			*(q + m) = ' ';
+			n += 5;
+		}
+		else
+		{
+			*(q + m) = *(p + j);
+			j++;
+		}
+	}
+	free(p);
+	return q;
 }
 
 int main()
