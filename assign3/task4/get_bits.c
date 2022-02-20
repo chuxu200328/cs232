@@ -8,9 +8,13 @@ unsigned *get_bits(unsigned x,
                    unsigned start,
                    unsigned end)
 {
-    int *p;
-    p = (x >> (start + 1 - end)) & ~(~0 << end);
-    return p;
+    unsigned int *a= malloc(sizeof(unsigned int *));
+    int t = end;
+    for(int c=0;c<=end-start;c++){
+        a[c] = (x >> t) & 1;
+        t--;
+    }
+    return a;
     // YOUR CODE HERE
     // Returning NULL is a placeholder
     // get_bits dynamically allocates an array a and set a[i] = 1 when (i+start)-th bit

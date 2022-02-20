@@ -7,6 +7,14 @@ void set_bits(unsigned * x,
              unsigned start,
              unsigned end,
              unsigned *v) {
+    for(int i = end; i<=start; i--){
+      if(v[i] == 0){
+        x[i+start]=0;
+      }
+      else{
+x[i+start]=1;
+      }
+    }           
     // YOUR CODE HERE
     // No return value
     // v points to an array of at least (end-start+1) unsigned integers.

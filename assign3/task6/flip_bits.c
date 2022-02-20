@@ -7,5 +7,7 @@
 void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
-    // YOUR CODE HERE
+    for(int i = end; i<=start;i--){
+        x[i] = ~x[i];
+    }
 }
