@@ -11,7 +11,7 @@ unsigned *get_bits(unsigned x,
     unsigned int *a= malloc(sizeof(unsigned int *));
     int t = end;
     for(int c=0;c<=end-start;c++){
-        a[c] = (x & (1 << t)) >> t;
+        a[c] = x & (1 << t);
         t--;
     }
     return a;

@@ -8,13 +8,13 @@ void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
     for(int i = end; i<=start;i--){
-        if (*x & (1 << i))
-    {
-        *x |= (0 << i);
-    }
-    else
-    {
-        *x |= (1 << i);
-    }
+        if (((*x >> i) & 1) == 0)
+      {
+          *x |= (1 << i);
+      }
+      else
+      {
+          *x |= (0 << i);
+      }
     }
 }

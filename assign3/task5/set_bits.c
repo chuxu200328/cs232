@@ -8,7 +8,7 @@ void set_bits(unsigned * x,
              unsigned end,
              unsigned *v) {
     for(int i = end; i<=start; i--){
-      if((*v & (1 << i)) >> i == 0){
+      if(((*v >> i) & 1) == 0){
         *x |= (1 << (i+start));
       }
       else{
