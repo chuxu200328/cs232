@@ -7,14 +7,35 @@
 void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
-    for(int i = end; i<=start;i--){
-        if (((*x >> i) & 1) == 0)
+                int i,j,m,n=0;
+                unsigned a = *x;
+                int arr[32];
+    for(i = 0; i<32;i++){
+        if (a&1)
       {
-          *x |= (1 << i);
+          arr[i]=1;
       }
       else
       {
-          *x |= (0 << i);
+          arr[i]=0;
+      }
+      a>>=1;
+    }
+    for(j = start; j<=end;j++){
+        if (arr[i]==0)
+      {
+          arr[j]=1;
+      }
+      else
+      {
+          arr[j]=0;
       }
     }
+    for(m = 0; m<32;i++){
+        if (arr[m]==1)
+      {
+          n+=pow(2,m);
+      }
+    }
+    *x = n;
 }
