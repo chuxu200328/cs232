@@ -8,7 +8,9 @@ void set_bits(unsigned * x,
              unsigned start,
              unsigned end,
              unsigned *v) {
-    int i,j,m,n=0,p=0;
+    int i,j,m,n,p;
+    n=0;
+    p=0;
                 unsigned a = *x;
                 int arr[32];
     for(i = 0; i<32;i++){

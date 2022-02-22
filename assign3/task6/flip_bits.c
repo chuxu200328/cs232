@@ -8,7 +8,8 @@
 void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
-                int i,j,m,n=0;
+                int i,j,m,n;
+                n=0;
                 unsigned a = *x;
                 int arr[32];
     for(i = 0; i<32;i++){
