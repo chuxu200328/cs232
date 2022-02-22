@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 // Set the bits of x within range of [start, end], in which both are inclusive
 // Assume 0 <= start & end <= 31
@@ -8,7 +7,7 @@ void set_bits(unsigned * x,
              unsigned start,
              unsigned end,
              unsigned *v) {
-    int i,j,m,n,p;
+    int i,j,m,n,p,c;
     n=0;
     p=0;
                 unsigned a = *x;
@@ -30,7 +29,11 @@ void set_bits(unsigned * x,
     for(m = 0; m<32;m++){
         if (arr[m]==1)
       {
-          p+=pow(2,m);
+        int t = 1;
+        for (c = 0; c < m; ++c){
+          t *= 2;
+        }
+          p+=t;
       }
     }
     *x = p;

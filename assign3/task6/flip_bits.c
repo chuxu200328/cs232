@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 // Note, the bits are counted from right to left. 
 // Flip the bits of x within range [start, end], in which both are inclusive.
@@ -8,7 +7,7 @@
 void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
-                int i,j,m,n;
+                int i,j,m,n,c;
                 n=0;
                 unsigned a = *x;
                 int arr[32];
@@ -36,7 +35,11 @@ void flip_bits(unsigned * x,
     for(m = 0; m<32;m++){
         if (arr[m]==1)
       {
-          n+=pow(2,m);
+           int t = 1;
+        for (c = 0; c < m; ++c){
+          t *= 2;
+        }
+          n+=t;
       }
     }
     *x = n;
