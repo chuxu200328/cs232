@@ -32,7 +32,7 @@ void flip_bits(unsigned * x,
           arr[j]=0;
       }
     }
-    for(m = 0; m<32;i++){
+    for(m = 0; m<32;m++){
         if (arr[m]==1)
       {
           n+=pow(2,m);

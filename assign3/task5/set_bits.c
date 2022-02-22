@@ -23,9 +23,9 @@ void set_bits(unsigned * x,
       a>>=1;
     }
     for(j = start; j<=end;j++){
-       arr[i]=v[n++];
+       arr[j]=v[n++];
     }
-    for(m = 0; m<32;i++){
+    for(m = 0; m<32;m++){
         if (arr[m]==1)
       {
           p+=pow(2,m);
