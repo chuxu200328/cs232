@@ -22,7 +22,7 @@ void flip_bits(unsigned * x,
       a>>=1;
     }
     for(j = start; j<=end;j++){
-        if (arr[i]==0)
+        if (arr[j]==0)
       {
           arr[j]=1;
       }

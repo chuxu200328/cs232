@@ -10,14 +10,14 @@ unsigned *get_bits(unsigned x,
 {
     unsigned int *a= malloc(sizeof(unsigned int *)*end-start+1);
     x>>=start;
-    for(int c=0;c<=end-start+1;c++){
+    for(int c=0;c<end-start+1;c++){
         if(x&1){
           a[c]=1;
         }
         else{
           a[c]=0;
         }
-        x>>=start;
+        x>>=1;
     }
     return a;
     // YOUR CODE HERE
