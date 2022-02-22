@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // Note, the bits are counted from right to left. 
 // Flip the bits of x within range [start, end], in which both are inclusive.
