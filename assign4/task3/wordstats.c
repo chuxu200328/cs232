@@ -6,10 +6,18 @@ int main () {
 
   /* Zero out the array */
   int letter_frequency[26] = {0};
-  int len, i;
+  int len, i,j;
   char buf[MAX_BUF];
-
+  fgets(buf, MAX_BUF, stdin);
+  len = strlen(buf);
   do {
+    for(j=0;j<26;j++){
+      if(buf[len-2] == j+65 || buf[len-2] == j+97){
+        letter_frequency[j] ++;
+        break;
+      }
+    }
+    len --;
   } while (len > 1);
 
   printf("Distribution of letters in corpus:\n");

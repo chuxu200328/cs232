@@ -4,7 +4,7 @@
 #include <string.h> /* Need for strlen() */
 
 
-#define NUM 30   /* number of strings */
+#define NUM 3   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
 int main()
@@ -22,11 +22,31 @@ int main()
 	 be LEN bytes long.  
 	 Note that the newline and NULL characters will be included in LEN.
   */
+  for(int i = 0;i<NUM;i++){
+    char buf[LEN];
+    fgets(buf, LEN, stdin);
+    int strLen = strlen(buf);
+    char tempStr[strLen];
+    for(int j = 0;j<strLen;j++){
+      tempStr[j]=buf[j];
+    }
+    
+    *(Strings+i) = tempStr;
+    printf("VVV %c\n", *(Strings[i]));
+  }
 
   puts("\nHere are the strings in the order you entered:");
 
   /* Write a for loop here to print all the strings. */
-
+  for(int k = 0;k<NUM;k++){
+    int c = 0;
+    while(*(Strings[k] + c) != '\0') {
+      printf("%c", *(Strings[k]+c));
+      c++;
+    }
+    printf("\n");
+    // printf("%s\n", *(Strings+k));
+  }
   
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order
