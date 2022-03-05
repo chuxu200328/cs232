@@ -44,4 +44,5 @@ int main()
   printf("\t%d upper case letters\n", uppercase);
   printf("\t%d digits\n", digits);
   printf("\t%d others\n", other);
+  return 0;
 }

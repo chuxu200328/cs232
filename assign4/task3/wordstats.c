@@ -25,4 +25,5 @@ int main () {
     // 'A' is ASCII code 65
     printf("%c: %d\n", 65+i, letter_frequency[i]);
   }
+  return 0;
 }
