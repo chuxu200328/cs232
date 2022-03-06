@@ -4,7 +4,7 @@
 #include <string.h> /* Need for strlen() */
 #include<stdlib.h>
 
-#define NUM 3   /* number of strings */
+#define NUM 30   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
 int compare(char t[],char b[]){
