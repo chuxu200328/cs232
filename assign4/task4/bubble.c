@@ -7,10 +7,29 @@
 #define NUM 3   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
+int compare(char t[],char b[]){
+  int s;
+  size_t lent = strlen(t)-1,lenb=strlen(b)-1;
+  if(lent-lenb>0){
+    for(s = 0;s < lenb;s++){
+      if(t[s] < b[s]) return -1;
+      else if(t[s] > b[s])return 1;
+    }
+    return 1;
+  }
+  else {
+    for(s = 0;s < lenb;s++){
+      if(t[s] < b[s]) return -1;
+      else if(t[s] > b[s])return 1;
+    }
+    return -1;
+  }
+}
+
 int main()
 {
   char * Strings[NUM];
-
+char temp[NUM][LEN];
   printf("Please enter %d strings, one per line:\n", NUM);
 
   /* Write a for loop here to read NUM strings.
@@ -22,31 +41,14 @@ int main()
 	 be LEN bytes long.  
 	 Note that the newline and NULL characters will be included in LEN.
   */
-  for(int i = 0;i<NUM;i++){
-    char buf[LEN];
-    fgets(buf, LEN, stdin);
-    int strLen = strlen(buf);
-    char *tempStr[strLen];
-    *tempStr = (char *)malloc(sizeof(char) * strLen);
-    for(int j = 0;j<strLen;j++){
-      *(tempStr[j])=buf[j];
+  for(int i = 0;i < NUM;i++){
+    Strings[i]=fgets(temp[i], LEN, stdin);
     }
-    *(Strings+i) = *tempStr;
-    printf("VVV %s\n", Strings[i]);
-  }
-
+    
   puts("\nHere are the strings in the order you entered:");
-
   /* Write a for loop here to print all the strings. */
-  for(int k = 0;k<NUM;k++){
-    // int c = 0;
-    // while(*(Strings[k] + c) != '\0') {
-    //   printf("%c", *(Strings[k]+c));
-    //   c++;
-    // }
-    // printf("\n");
-    // printf("%s\n", *(Strings+k));
-    printf("[%d] %s\n", k + 1, Strings[k]);
+  for(int j = 0;j < NUM;j++){
+     printf("%s",Strings[j]);
   }
   
   /* Bubble sort */
@@ -62,10 +64,22 @@ int main()
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
   /* Output sorted list */
+  for(int m = 0;m < NUM;m++){
+    for(int n = 0;n < NUM-1-m;n++){
+      if(compare(Strings[n],Strings[n+1])==1){
+        char *q=Strings[n];
+        Strings[n]=Strings[n+1];
+        Strings[n+1]=q;
+      }
+    }
+  }
   
   puts("\nIn alphabetical order, the strings are:");     
   /* Write a for loop here to print all the strings. Feel free to use puts/printf
      etc. for printing each string.
   */
-
+for (int k = 0; k < NUM; k++) {
+    printf("%s", Strings[k]);
+  }
+  return 0;
 }
