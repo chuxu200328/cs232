@@ -2,7 +2,7 @@
 
 #include <stdio.h>  /* Need for standard I/O functions */
 #include <string.h> /* Need for strlen() */
-
+#include<stdlib.h>
 
 #define NUM 3   /* number of strings */
 #define LEN 1200  /* max length of each string */
@@ -26,26 +26,27 @@ int main()
     char buf[LEN];
     fgets(buf, LEN, stdin);
     int strLen = strlen(buf);
-    char tempStr[strLen];
+    char *tempStr[strLen];
+    *tempStr = (char *)malloc(sizeof(char) * strLen);
     for(int j = 0;j<strLen;j++){
-      tempStr[j]=buf[j];
+      *(tempStr[j])=buf[j];
     }
-    
-    *(Strings+i) = tempStr;
-    printf("VVV %c\n", *(Strings[i]));
+    *(Strings+i) = *tempStr;
+    printf("VVV %s\n", Strings[i]);
   }
 
   puts("\nHere are the strings in the order you entered:");
 
   /* Write a for loop here to print all the strings. */
   for(int k = 0;k<NUM;k++){
-    int c = 0;
-    while(*(Strings[k] + c) != '\0') {
-      printf("%c", *(Strings[k]+c));
-      c++;
-    }
-    printf("\n");
+    // int c = 0;
+    // while(*(Strings[k] + c) != '\0') {
+    //   printf("%c", *(Strings[k]+c));
+    //   c++;
+    // }
+    // printf("\n");
     // printf("%s\n", *(Strings+k));
+    printf("[%d] %s\n", k + 1, Strings[k]);
   }
   
   /* Bubble sort */

@@ -6,9 +6,9 @@ int main () {
 
   /* Zero out the array */
   int letter_frequency[26] = {0};
-  int len, i,j,m;
+  int len,i,j,m;
   char buf[MAX_BUF];
-  fgets(buf, MAX_BUF, stdin);
+  fgets(buf,MAX_BUF,stdin);
   len = strlen(buf);
   do {
     for(m=0;m<len-1;m++){
@@ -19,7 +19,7 @@ int main () {
       }
     }
     }
-    fgets(buf, MAX_BUF, stdin);
+    fgets(buf,MAX_BUF,stdin);
     len = strlen(buf);
   } while (len > 1);
 
